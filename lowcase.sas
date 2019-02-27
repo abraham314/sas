@@ -1,0 +1,24 @@
+%macro lowcase(string);
+%*********************************************************************;
+%*                                                                   *;
+%*  MACRO: LOWCASE                                                   *;
+%*                                                                   *;
+%*  USAGE: 1) %lowcase(argument)                                     *;
+%*                                                                   *;
+%*  DESCRIPTION:                                                     *;
+%*    This macro returns the argument passed to it unchanged         *;
+%*    except that all upper-case alphabetic characters are changed   *;
+%*    to their lower-case equivalents.                               *;
+%*                                                                   *;
+%*  E.g.:          %let macvar=%lowcase(SAS Institute Inc.);        %*;
+%*  The variable macvar gets the value "sas institute inc."          *;
+%*                                                                   *;
+%*  NOTES:                                                           *;
+%*    Although the argument to the %UPCASE macro function may        *;
+%*    contain commas, the argument to %LOWCASE may not, unless       *;
+%*    they are quoted.  Because %LOWCASE is a macro, not a function, *;
+%*    it interprets a comma as the end of a parameter.               *;
+%*                                                                   *;
+%*********************************************************************;
+%sysfunc(lowcase(%nrbquote(&string)))
+%mend;
